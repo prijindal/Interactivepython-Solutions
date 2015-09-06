@@ -14,5 +14,5 @@ def binarySearch(numList, item):
             return True
     return False
 
-L = [random.randint(0, 10000000) for i in range(1000)]
-print(timeit.timeit('binarySearch(L, 101)', setup="from __main__ import binarySearch, L", number=10000))
+L = [random.randint(0, 10000) for i in range(10000)]
+print(timeit.timeit('binarySearch(L, 556)', setup="from __main__ import binarySearch, L", number=10000))

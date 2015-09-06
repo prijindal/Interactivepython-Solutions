@@ -3,11 +3,13 @@ import timeit
 
 class Hashing:
     def __init__(self):
-        self.length = 1001
+        self.length = 10001
         self.list = [None]* self.length
 
     def put(self, item):
         hashed = self.hashfunction(item)
+        if self.list[hashed] == item:
+            return
         if self.list[hashed]:
             increment = 1
             newhash = self.rehash(hashed, increment)
@@ -39,7 +41,7 @@ class Hashing:
         return (hashed + increment*increment)%self.length
 
 H = Hashing()
-for i in range(1000):
-    H.put(random.randint(0, 10000000))
+for i in range(10000):
+    H.put(random.randint(0, 10000))
 
-print(timeit.timeit('H.get(101)', setup="from __main__ import H", number=10000))
+print(timeit.timeit('H.get(556)', setup="from __main__ import H", number=10000))
